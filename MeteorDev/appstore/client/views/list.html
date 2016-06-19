@@ -1,0 +1,14 @@
+<template name="list">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="text-center">
+                <strong>Top Star Apps</strong>
+            </div>
+        </div>
+    </nav>
+    <ul class="list-group">
+        {{#each apps}}
+            {{> preview this}}
+        {{/each}}
+    </ul>
+</template>

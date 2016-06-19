@@ -1,0 +1,59 @@
+<template name="detail">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                    <a id="backLink">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    </a>
+            </div>
+        </div>
+    </nav>
+    <div class="appDetail">
+        <div class="row">
+            <div class="col-xs-5">
+                <img height=120 width=120 src="{{iconUrl}}"/>
+            </div>
+            <div class="col-xs-7">
+                <div>{{title}}</div>
+                <p class="text-muted">{{developer}}</p>
+                <div>
+                    {{> starsRating rating=avgRating size='sm'}}
+                </div>
+                <div class="numberRec">Number of Recommendations: {{numberOfRecommendations}}</div>
+            </div>
+        </div>
+        <hr/>
+        {{#if recommendation}}
+            <div class="row">
+                <div class="col-xs-12">
+                    Related Apps:
+                </div>
+            </div>
+            <div class="row overflowWrapper">
+                <div class="recommendationContainer">
+                    {{#each recommendation}}
+                        {{> recommendation getSuggestedApp this}}
+                    {{/each}}
+                </div>
+            </div>
+            <hr/>
+        {{/if}}
+        <div class="row">
+            <div class="col-xs-12">
+                <strong>Introduction</strong>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col-xs-12">
+                <p class="text-muted">{{intro}}</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="recommendation">
+    <div class="recommendation">
+        <a href="{{pathFor 'detail'}}"><img height=50 width=50 src="{{iconUrl}}"/></a>
+        <a href="{{pathFor 'detail'}}" style="display:block;">{{title}}</a>
+    </div>
+</template>
