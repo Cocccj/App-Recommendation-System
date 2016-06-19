@@ -1,7 +1,7 @@
 # App-Recommendation-System
 An application recommender with following three parts:
 
-###Application Crawler 
+###Application Info Web Crawler 
 A web crawler for fetching application information from AppStore.
 
 ###Recommender
